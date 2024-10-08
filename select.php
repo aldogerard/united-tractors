@@ -21,11 +21,11 @@
   if (isset($_POST['search'])) {
       $search_produk = htmlspecialchars($_POST['search_produk']);
       $search_sales = htmlspecialchars($_POST['search_sales']);
-      $search_bulan = htmlspecialchars($_POST['search_bulan']);
+      $search_bulan = htmlspecialchars($_POST['search_bulan']); 
 
       $conditions = [];
       if (!empty($search_produk)) {
-          $conditions[] = "produk.nama_produk LIKE '%$search_produk%'";
+          $conditions[] = "leads.id_produk LIKE '%$search_produk%'";
       }
       if (!empty($search_sales)) {
           $conditions[] = "sales.nama_sales LIKE '%$search_sales%'";
