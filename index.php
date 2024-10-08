@@ -121,7 +121,7 @@
                                 <?php } ?>
                             </select>
                         </div>
-                        <div class="input-section">
+                        <div class="input-section btn-section">
                             <button class="submit search" type="submit" name="search">Search</button>
                         </div>
                     </div>
@@ -146,12 +146,13 @@
                         <tbody>
                             <?php
             // Fetch data per baris
-            $no = 0;
+            $no = 1;
             while ($row = $result->fetch_assoc()) {
-                $id_leads = str_pad(htmlspecialchars($row['id_leads']), 3, '0', STR_PAD_LEFT);
+                $id_leads = str_pad($row['id_leads'], 3, '0', STR_PAD_LEFT);
                 echo "<tr>";
-                echo "<td>" .  ++$no . "</td>";
-                echo "<td>$id_leads</td>";
+                echo "<td>" . $no++ . "</td>";
+                echo "<td>" . $id_leads . "</td>";
+                // echo "<td>" . htmlspecialchars($row['id_leads']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['tanggal']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['nama_sales']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['nama_lead']) . "</td>";
@@ -166,7 +167,9 @@
                 </div>
 
                 <?php } else { ?>
-                <div class="alert alert-warning">Tidak ada data.</div>
+                <div class="result-wrapper">
+                    <h1>No result</h1>
+                </div>
                 <?php } ?>
             </div>
 
