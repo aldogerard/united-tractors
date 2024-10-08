@@ -15,7 +15,8 @@
   $sql = "SELECT leads.*, sales.nama_sales, produk.nama_produk 
           FROM leads 
           JOIN sales ON leads.id_sales = sales.id_sales 
-          JOIN produk ON leads.id_produk = produk.id_produk";
+          JOIN produk ON leads.id_produk = produk.id_produk
+          ORDER BY leads.id_leads";
 
   // Check if searching
   if (isset($_POST['search'])) {

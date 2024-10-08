@@ -133,6 +133,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Id</th>
                                 <th>Date</th>
                                 <th>Sales</th>
@@ -145,9 +146,12 @@
                         <tbody>
                             <?php
             // Fetch data per baris
+            $no = 0;
             while ($row = $result->fetch_assoc()) {
+                $id_leads = str_pad(htmlspecialchars($row['id_leads']), 3, '0', STR_PAD_LEFT);
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($row['id_leads']) . "</td>";
+                echo "<td>" .  ++$no . "</td>";
+                echo "<td>$id_leads</td>";
                 echo "<td>" . htmlspecialchars($row['tanggal']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['nama_sales']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['nama_lead']) . "</td>";
