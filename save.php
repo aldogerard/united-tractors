@@ -12,7 +12,7 @@ require('connection.php');
 
         $sql = "INSERT INTO leads (tanggal, id_sales, nama_lead, id_produk, no_wa, kota) VALUES ('$tanggal', '$sales', '$leadname', '$produk', '$whatsapp', '$kota')";
         if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Data berhasil disimpan.'); window.location.href='index.php';</script>";
+            header("Location: index.php");
         } else {
             echo "<script>alert('Error: " . $sql . " " . $conn->error . "'); window.location.href='index.php';</script>";
         }
